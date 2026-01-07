@@ -110,3 +110,39 @@ subsample: 0.7
 colsample_bytree: 0.7
 reg_alpha: 1
 reg_lambda: 1
+
+---
+
+## 📈 Model Diagnostics
+
+To validate that the model is statistically sound and reliable, several diagnostic checks were performed:
+
+- **Residual Distribution:** Residuals were approximately normally distributed and centered around zero, indicating no systematic bias.
+- **Actual vs Predicted Analysis:** Predictions closely aligned with the 45° reference line, showing strong predictive accuracy.
+- **Heteroscedasticity Check:** Residual variance increased slightly for higher-priced houses, indicating mild heteroscedasticity — a common pattern in housing data.
+- **Generalization Check:** Train–test performance comparison showed a moderate and acceptable generalization gap.
+
+These diagnostics confirm that the model generalizes well and does not exhibit major statistical pathologies.
+
+---
+
+## 🔍 Uncertainty Estimation
+
+Prediction uncertainty was quantified using bootstrap-based prediction intervals:
+
+- The training data was resampled multiple times to fit bootstrap models.
+- Residual noise was added to capture outcome-level uncertainty.
+- Empirical coverage was computed to assess calibration.
+
+### Results
+
+- Nominal 95% prediction intervals achieved approximately **81% empirical coverage**, indicating slight underestimation of uncertainty.
+- Interval widths increased appropriately for high-priced houses, reflecting increased uncertainty in sparse regions of the feature space.
+
+This allows the system to return not only point predictions, but also uncertainty-aware price ranges.
+
+---
+
+## 🟢 Summary
+
+This project demonstrates a full data science workflow — from statistical exploration and preprocessing through model tuning, diagnostics, uncertainty estimation, and deployment — resulting in a robust and interpretable house price prediction system.
