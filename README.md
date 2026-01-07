@@ -110,7 +110,7 @@ subsample: 0.7
 colsample_bytree: 0.7
 reg_alpha: 1
 reg_lambda: 1
-
+```
 ---
 
 ## 📈 Model Diagnostics
